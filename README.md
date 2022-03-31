@@ -1,1 +1,1 @@
-# WhichCameFirst
+A simple game that stores objects with an age attribute, selects two and conveys them to the user who is prompted to select which they think is older. Score is tracked and displayed, rounds to play for can be set, etc.
