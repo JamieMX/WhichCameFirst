@@ -6,7 +6,7 @@ class Item:
     def __init__(self, item_name, item_year, item_fact=''):
         self.name = item_name
         self.year = item_year
-        self.age = (2022 - item_year)
+        self.age = (2022 - int(item_year))
         self.fact = item_fact
 
     def get_name(self):

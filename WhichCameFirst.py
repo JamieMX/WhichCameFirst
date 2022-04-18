@@ -3,12 +3,24 @@
 import Item
 class WhichCameFirst:
     def __init__(self):
-        self.item_list = []
+        self.running = True
+        #some default examples for testing
+        mark_twain = Item.Item("Mark Twain", 1835)
+        bicycle = Item.Item("The bicycle", 1817)
+        mayonnaise = Item.Item("Mayonnaise", 1756)
+        self.item_list = [mark_twain, bicycle, mayonnaise]
 
     #method called when an item is added to the game
-    def add_item(self, new_item_name, new_item_year):
+    #basically functional
+    def add_item(self):
         """Method used to add new item to game. Appends created item to list."""
-        new_item = Item(new_item_name, new_item_year)
+        print("Enter a name for the item to add \n")
+        item_name = self.get_input()
+        print("Enter the year the item was created or born \n")
+        item_year = self.get_input()
+        print("Enter a fact about the item")
+        item_fact = self.get_input()
+        new_item = Item.Item(item_name, item_year, item_fact)
         self.item_list.append(new_item)
 
     #method called to determine what is correct answer
@@ -17,6 +29,41 @@ class WhichCameFirst:
             return item_one
         else:
             return item_two
+
+    def get_input(self):
+        user_input = input()
+        return user_input
+
+    def play_game(self):
+        pass
+
+    #Use this method just to show item names
+    #functional
+    def show_items(self):
+        print("The following items are part of the game: \n")
+        for item in self.item_list:
+            print(item.get_name() + "\n")
+
+    #functional
+    def kill_program(self):
+        self.running = False
+
+    def start_program(self):
+        while self.running:
+            print("Which came first? \nPlease enter a number to make your choice from the list below \n"\
+                "1. Play game \n2. Add a new item to the game \n3. Show all items present in the game \n"\
+                    "4. Close the game.\n")
+            user_choice = self.get_input()
+            if user_choice == "1":
+                self.play_game()
+            elif user_choice == "2":
+                self.add_item()
+            elif user_choice == "3":
+                self.show_items()
+            elif user_choice == "4":
+                self.kill_program()
+
+            
     
     """while running
             if input = add item
@@ -35,4 +82,5 @@ class WhichCameFirst:
                             next round 
                 """
     
+
 
