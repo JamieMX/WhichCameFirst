@@ -8,7 +8,12 @@ Program basically functional. Tracks user score, always picks two distinct items
 
 -Actually making use of 'fact' attribute
 
+-Setting rounds to play for
+
+-Incorporating GUI later for practice
+
 #Issues:
 
 -Has no way to handle years entered before AD
+
 -Has no way to handle items with the same year value
