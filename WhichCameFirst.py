@@ -13,7 +13,16 @@ class WhichCameFirst:
         mark_twain = Item.Item("Mark Twain", 1835)
         bicycle = Item.Item("The bicycle", 1817)
         mayonnaise = Item.Item("Mayonnaise", 1756)
-        self.item_list = [mark_twain, bicycle, mayonnaise]
+        canada = Item.Item("Canada", 1867)
+        saxophone = Item.Item("The saxophone", 1846)
+        stirrups = Item.Item("Stirrups", 400)
+        sikhism = Item.Item("Sikhism", 1500)
+        toothpaste = Item.Item("Toothpaste", 1824)
+        bakelite = Item.Item("Bakelite", 1907)
+        jet_engine = Item.Item("The jet engine", 1939)
+        arthur_wellesley = Item.Item("Arthur Wellesley, the first Duke of Wellington", 1769)
+        nostradamus = Item.Item("Nostradamus", 1503)
+        self.item_list = [mark_twain, bicycle, mayonnaise, canada, saxophone, stirrups, sikhism, toothpaste, bakelite, jet_engine, arthur_wellesley, nostradamus]
 
     #method called when an item is added to the game
     #basically functional
@@ -41,25 +50,20 @@ class WhichCameFirst:
 
     def pick_items(self):
         """Method called by play game function to select two random items to play the game with"""
-        positions = []
-        for i in range(0, 2):
-            positions.append(random.randint(0, len(self.item_list)-1))
-        chosen_items = []
-        chosen_items.append(self.item_list[positions[0]])
-        chosen_items.append(self.item_list[positions[1]])
+        random_index1 = random.randint(0, len(self.item_list)-1)
+        random_index2 = random.randint(0, len(self.item_list)-1)
+        while random_index1 == random_index2:
+            random_index2 = random.randint(0, len(self.item_list)-1)
+        chosen_items = [self.item_list[random_index1], self.item_list[random_index2]]
         return(chosen_items)
-        print("A) " + chosen_items[0])
-        print("Or...")
-        print("B) " + chosen_items[1])
-        
-
 
     def play_game(self):
+        #to do: proper score tracking
         """Method called when user chooses run game option."""
         print(self.game_start_message)
         score = 0
         while self.playing:
-            print("You currently have " + str(self.score) + " points.")
+            print("You currently have " + str(score) + " points.")
             print("Enter A or B to make a choice or X to quit the game")
             print("Which came first?: ")
             options = self.pick_items()
@@ -96,9 +100,11 @@ class WhichCameFirst:
     #Use this method just to show item names
     #functional
     def show_items(self):
-        print("The following items are part of the game: \n")
+        print("The game currently has " + str(len(self.item_list)) + " items in play.")
+        print("The following items are part of the game:")
         for item in self.item_list:
-            print(item.get_name() + "\n")
+            print(item.get_name())
+        print("\n")
 
     #functional
     def kill_program(self):
