@@ -87,16 +87,6 @@ class WhichCameFirst:
                 print("Incorrect!")
         pass
 
-        """
-            print rules and instructions
-            while running:
-                show question
-                    if correct add point
-                    if wrong pass
-                    if end game, end game
-                show new question
-            """
-
     #Use this method just to show item names
     #functional
     def show_items(self):
@@ -124,25 +114,3 @@ class WhichCameFirst:
                 self.show_items()
             elif user_choice == "4":
                 self.kill_program()
-
-            
-    
-    """while running
-            if input = add item
-                run add item
-            if input = view items
-                run view items
-            if input = play game
-                run game
-                    pick X and Y from list of items
-                    which came first X or Y
-                        if entry = x and x = correct
-                            give point
-                            next round
-                        else
-                            no point
-                            next round 
-                """
-    
-
-
